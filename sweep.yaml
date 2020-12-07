@@ -1,0 +1,21 @@
+program: process_data.py
+method: bayes
+metric:
+  name: dev_med_ae
+  goal: minimize
+parameters:
+  penalty:
+    values: ["l2", "l1"]
+  lr_type:
+    values: ["constant", "optimal", "invscaling", "adaptive"]
+  lr:
+    min: 0.000000001
+    max: 0.000001
+  alpha:
+    min: 0
+    max: 0.1
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
